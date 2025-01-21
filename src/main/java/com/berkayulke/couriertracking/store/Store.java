@@ -1,4 +1,4 @@
-package com.berkayulke.couriertracking;
+package com.berkayulke.couriertracking.store;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
