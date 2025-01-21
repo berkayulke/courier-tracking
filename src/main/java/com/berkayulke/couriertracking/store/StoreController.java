@@ -18,4 +18,10 @@ public class StoreController {
     List<Store> getAllStores() {
         return storeService.getAll();
     }
+    
+    @PostMapping("/clearCache")
+    void clearStoreCache() {
+        storeService.clearAllStoresCache();
+    }
+    
 }

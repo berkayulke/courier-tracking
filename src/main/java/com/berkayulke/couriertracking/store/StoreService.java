@@ -1,6 +1,8 @@
 package com.berkayulke.couriertracking.store;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +13,13 @@ public class StoreService {
     @Autowired
     private StoreRepository storeRepository;
     
-    List<Store> getAll() {
+    @Cacheable(value = "allStores")
+    public List<Store> getAll() {
         return storeRepository.findAll();
+    }
+    
+    @CacheEvict(value = "allStores")
+    public void clearAllStoresCache() {
     }
 
 }
