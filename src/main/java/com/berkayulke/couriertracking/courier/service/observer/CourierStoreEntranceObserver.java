@@ -28,7 +28,7 @@ public class CourierStoreEntranceObserver implements CourierLocationUpdateObserv
     private static final int ENTRANCE_TIME_THRESHOLD_IN_MS = 60 * 1000; // 1 minute
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         courierService.subscribe(this);
     }
     

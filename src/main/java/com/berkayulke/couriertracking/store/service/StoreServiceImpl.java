@@ -2,7 +2,6 @@ package com.berkayulke.couriertracking.store.service;
 
 import com.berkayulke.couriertracking.helpers.DistanceHelper;
 import com.berkayulke.couriertracking.store.model.Store;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

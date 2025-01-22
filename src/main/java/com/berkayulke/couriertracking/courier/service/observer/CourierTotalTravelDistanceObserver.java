@@ -15,7 +15,7 @@ public class CourierTotalTravelDistanceObserver implements CourierLocationUpdate
     private CourierService courierService;
     
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         courierService.subscribe(this);
     }
     

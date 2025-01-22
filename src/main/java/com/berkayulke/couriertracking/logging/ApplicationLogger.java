@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationLogger implements InitializingBean {
 
-    private LoggingStrategy consoleLoggingStrategy = new ConsoleLoggingStrategy();
+    private final LoggingStrategy consoleLoggingStrategy = new ConsoleLoggingStrategy();
     
     @Autowired
     private DatabaseLoggingStrategy databaseLoggingStrategy;
@@ -21,7 +21,7 @@ public class ApplicationLogger implements InitializingBean {
     private LoggingStrategy currentStrategy;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         hybridLoggingStrategy = new HybridLoggingStrategy(consoleLoggingStrategy, databaseLoggingStrategy);
         currentStrategy = hybridLoggingStrategy;
     }
