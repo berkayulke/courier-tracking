@@ -3,6 +3,7 @@ package com.berkayulke.couriertracking.courier.service;
 import com.berkayulke.couriertracking.courier.model.Courier;
 import com.berkayulke.couriertracking.courier.service.request.CourierLocationUpdateRequest;
 import com.berkayulke.couriertracking.helpers.DistanceHelper;
+import com.berkayulke.couriertracking.logging.ApplicationLogger;
 import com.berkayulke.couriertracking.store.model.Store;
 import com.berkayulke.couriertracking.store.service.StoreService;
 import jakarta.persistence.EntityManager;
@@ -29,8 +30,9 @@ class CourierServiceImpl implements CourierService {
     private static final int ENTRANCE_RADIUS = 100;
     private static final int ENTRANCE_TIME_THRESHOLD_IN_MS = 60 * 1000; // 1 minute
     
-    private static final Logger logger = LoggerFactory.getLogger(CourierServiceImpl.class);
-    
+    @Autowired
+    private ApplicationLogger logger;
+
     @Override
     public Courier findById(String id) {
         List<Courier> courierList = entityManager.createQuery("from Courier where id=:id", Courier.class)
@@ -66,7 +68,6 @@ class CourierServiceImpl implements CourierService {
         boolean isEnteredToNewStore = !closestStore.getId().equals(courier.getLastEnteredStoreId()); 
         boolean isNewEntranceUnderThreshold = !isFirstEntrance && courier.getLastEntranceDate().after(new Timestamp(locationUpdate.getTime().getTime() - ENTRANCE_TIME_THRESHOLD_IN_MS));
         if (isEnteredToNewStore || isFirstEntrance || isNewEntranceUnderThreshold) {
-            //TODO log/audit bişi ve strategy pattern
             logger.info("Courier " + courier.getId() + " has entered the radius of " + closestStore.getName());
         }
 
