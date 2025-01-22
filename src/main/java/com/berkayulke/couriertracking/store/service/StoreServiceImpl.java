@@ -16,9 +16,6 @@ class StoreServiceImpl implements StoreService {
     @Autowired
     private StoreRepository storeRepository;
 
-    @Autowired
-    private EntityManager entityManager;
-    
     @Cacheable(value = "allStores")
     @Override
     public List<Store> getAll() {
