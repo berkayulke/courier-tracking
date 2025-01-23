@@ -1,0 +1,29 @@
+### Get all stores
+GET http://localhost:8080/stores
+
+<> 2025-01-23T123439.200.json
+
+### Clear stores cache
+POST http://localhost:8080/stores/clearCache
+
+### Get loggin strategy
+GET http://localhost:8080/logging/currentStrategy
+
+### Change loggin strategy
+POST http://localhost:8080/logging/currentStrategy
+Content-Type: application/json
+
+{ "name": "hybrid"}
+
+### Get total travel distance for a courier
+GET http://localhost:8080/courier/berkay/totalTravelDistance
+
+### Send courier location
+POST http://localhost:8080/courier/berkay/locationUpdate HTTP/1.1
+Content-Type: application/json
+
+{
+  "time": "2025-01-22T15:11:05.791Z",
+  "lat": 41.0066852,
+  "lng": 28.6552261
+}
