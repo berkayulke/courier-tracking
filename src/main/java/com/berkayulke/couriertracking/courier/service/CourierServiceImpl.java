@@ -37,7 +37,6 @@ class CourierServiceImpl implements CourierService {
         return null;
     }
 
-    //TODO total distance için startDate endDate de alıp ona göre sorgulama
     //Updates an existing courier or creates a new one 
     @Override
     public void registerLocationUpdate(String courierId, CourierLocationUpdateRequest locationUpdate) {
