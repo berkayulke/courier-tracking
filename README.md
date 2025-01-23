@@ -1,3 +1,7 @@
+## Requirements
+### Java 17
+Check you have java 17 or later with `java --version`
+
 ## Running project from IntelliJ IDEA
 
 - Launch IntelliJ IDEA.
@@ -11,7 +15,7 @@
 ## Running project from Terminal
 ### Install dependencies
 
-Run `chmod +x ./mvnw` to make sure it is executable.
+If you are on a unix system, run `chmod +x ./mvnw` to make sure it is executable.
 
 Run `./mvnw install` to install maven dependencies.
 
