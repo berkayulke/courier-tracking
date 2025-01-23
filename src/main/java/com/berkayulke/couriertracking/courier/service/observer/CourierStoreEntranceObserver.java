@@ -24,7 +24,7 @@ public class CourierStoreEntranceObserver implements CourierLocationUpdateObserv
     @Autowired 
     private CourierService courierService;
 
-    private static final int ENTRANCE_RADIUS = 100;
+    private static final double ENTRANCE_RADIUS = 100D;
     private static final int ENTRANCE_TIME_THRESHOLD_IN_MS = 60 * 1000; // 1 minute
 
     @Override

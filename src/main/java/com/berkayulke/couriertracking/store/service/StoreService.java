@@ -7,5 +7,5 @@ import java.util.List;
 public interface StoreService {
     List<Store> getAll();
     void clearAllStoresCache();
-    Store getClosestStoreIfWithinRange(Double latitude, Double longitude, int radius);
+    Store getClosestStoreIfWithinRange(Double latitude, Double longitude, double radius);
 }

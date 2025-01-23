@@ -30,7 +30,7 @@ class StoreServiceImpl implements StoreService {
     }
     
     @Override
-    public Store getClosestStoreIfWithinRange(Double latitude, Double longitude, int radiusInMeters) {
+    public Store getClosestStoreIfWithinRange(Double latitude, Double longitude, double radiusInMeters) {
         //Use Haversina formula to sort stores https://en.wikipedia.org/wiki/Haversine_formula
         String sql = """
                 SELECT STORES.*, (
